@@ -42,7 +42,24 @@
         </table>
     </main>
 
-    <script src="dist/app.js"></script>
+    <script type="module">
+        import { log } from "./dist/logActivity.controller.js";
+        import { reset } from "./dist/logActivity.view.js";
+        import { init } from "./dist/activityList.controller.js";
+
+        const logActivityForm = document.forms.namedItem("logActivity");
+
+        reset(logActivityForm);
+
+        logActivityForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            log(new FormData(e.target));
+            reset(logActivityForm);
+        });
+
+        init(activities);
+    </script>
 </body>
 
 </html>
