@@ -1,6 +1,10 @@
 main {
     width: min(100% - 2rem, 70ch);
     margin-inline: auto;
+
+    &>*+* {
+        margin-block-start: 1em;
+    }
 }
 
 .form-control {
@@ -43,4 +47,16 @@ main {
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
+}
+
+.sort {
+    cursor: pointer;
+
+    &--desc::after {
+        content: '🔽';
+    }
+
+    &--asc::after {
+        content: '🔼';
+    }
 }

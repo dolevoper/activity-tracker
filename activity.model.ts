@@ -1,4 +1,4 @@
-type Activity = {
+export type Activity = {
     id: string,
     name: string,
     started: Date,
@@ -30,6 +30,10 @@ export function create(activity: Activity) {
 
     saveToStorage();
     setTimeout(() => callbacks.forEach((callback) => callback()));
+}
+
+export function getDuration({ started, ended }: Activity) {
+    return ((ended.getTime() - started.getTime()) / 60 / 60 / 1000);
 }
 
 export function registerOnUpdate(callback: () => void) {

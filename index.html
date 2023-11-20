@@ -33,9 +33,9 @@
             <thead class="activities__head">
                 <tr class="table-row">
                     <th>Activity</th>
-                    <th>Started</th>
+                    <th id="startedHeader" class="sort sort--desc">Started</th>
                     <th>Ended</th>
-                    <th>Duration</th>
+                    <th id="durationHeader" class="sort">Duration</th>
                 </tr>
             </thead>
             <tbody id="activities" class="activities__body"></tbody>
@@ -45,7 +45,7 @@
     <script type="module">
         import { log } from "./dist/logActivity.controller.js";
         import { reset } from "./dist/logActivity.view.js";
-        import { init } from "./dist/activityList.controller.js";
+        import { init, toggleSort } from "./dist/activityList.controller.js";
 
         const logActivityForm = document.forms.namedItem("logActivity");
 
@@ -59,6 +59,9 @@
         });
 
         init(activities);
+
+        startedHeader.addEventListener("click", () => toggleSort(activities, "started"));
+        durationHeader.addEventListener("click", () => toggleSort(activities, "duration"));
     </script>
 </body>
 

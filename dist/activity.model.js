@@ -18,6 +18,9 @@ export function create(activity) {
     saveToStorage();
     setTimeout(() => callbacks.forEach((callback) => callback()));
 }
+export function getDuration({ started, ended }) {
+    return ((ended.getTime() - started.getTime()) / 60 / 60 / 1000);
+}
 export function registerOnUpdate(callback) {
     callbacks.push(callback);
 }
