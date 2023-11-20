@@ -1,5 +1,5 @@
 import { getAll, getDuration, registerOnUpdate } from "./activity.model.js";
-import { render } from "./activityList.view.js";
+import { render, updateSort } from "./activityList.view.js";
 let sortProp = "started";
 let sortDir = "desc";
 const sortingFunctions = {
@@ -16,12 +16,13 @@ export function init(activitiesTable) {
     updateTable(activitiesTable);
     registerOnUpdate(() => updateTable(activitiesTable));
 }
-export function toggleSort(activitiesTable, prop) {
+export function toggleSort(activitiesTable, startedHeader, durationHeader, prop) {
     sortDir = sortProp === prop ?
         sortDir === "desc" ? "asc" : "desc" :
         "desc";
     sortProp = prop;
     updateTable(activitiesTable);
+    updateSort(startedHeader, durationHeader, sortProp, sortDir);
 }
 function updateTable(activitiesTable) {
     const activities = getAll().toSorted(sortingFunctions[sortProp][sortDir]);

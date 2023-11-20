@@ -1,8 +1,5 @@
 import { Activity, getAll, getDuration, registerOnUpdate } from "./activity.model.js";
-import { render } from "./activityList.view.js";
-
-type SortProp = "started" | "duration";
-type SortDir = "desc" | "asc";
+import { SortDir, SortProp, render, updateSort } from "./activityList.view.js";
 
 let sortProp: SortProp = "started";
 let sortDir: SortDir = "desc";
@@ -24,13 +21,14 @@ export function init(activitiesTable: HTMLElement) {
     registerOnUpdate(() => updateTable(activitiesTable));
 }
 
-export function toggleSort(activitiesTable: HTMLElement, prop: SortProp) {
+export function toggleSort(activitiesTable: HTMLElement, startedHeader: HTMLElement, durationHeader: HTMLElement, prop: SortProp) {
     sortDir = sortProp === prop ?
         sortDir === "desc" ? "asc" : "desc" :
         "desc";
     sortProp = prop;
 
     updateTable(activitiesTable);
+    updateSort(startedHeader, durationHeader, sortProp, sortDir);
 }
 
 function updateTable(activitiesTable: HTMLElement) {
