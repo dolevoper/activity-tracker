@@ -5,10 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Tracker</title>
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/index.css" />
 </head>
 
 <body>
-    <h1>Activity Tracker</h1>
+    <main>
+        <h1>Activity Tracker</h1>
+        <h2>Log activity</h2>
+        <form name="logActivity" class="log-activity">
+            <div class="form-control">
+                <label for="logActivityNameInput">Name</label>
+                <input type="text" name="name" id="logActivityNameInput" required />
+            </div>
+            <div class="form-control">
+                <label for="logActivityStartDateInput">Start date</label>
+                <input type="date" name="startDate" id="logActivityStartDateInput" required />
+            </div>
+            <div class="form-control">
+                <label for="logActivityStartTimeInput">Start time</label>
+                <input type="time" name="startTime" id="logActivityStartTimeInput" required />
+            </div>
+            <div class="form-control">
+                <label for="logActivityEndDateInput">End date</label>
+                <input type="date" name="endDate" id="logActivityEndDateInput" required />
+            </div>
+            <div class="form-control">
+                <label for="logActivityEndTimeInput">End time</label>
+                <input type="time" name="endTime" id="logActivityEndTimeInput" required />
+            </div>
+            <button class="log-activity__log-button">➕Log</button>
+        </form>
+    </main>
+
+    <script src="dist/app.js"></script>
 </body>
 
 </html>

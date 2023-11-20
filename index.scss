@@ -1,0 +1,19 @@
+main {
+    width: min(100% - 2rem, 70ch);
+    margin-inline: auto;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-activity {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    &__log-button {
+        margin-inline-start: auto;
+    }
+}
