@@ -16,3 +16,25 @@ main {
 .log-activity__log-button {
   margin-inline-start: auto;
 }
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.activities__head, .activities__body {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+.activities__body {
+  grid-row: body;
+  grid-row: 2/calc(2 + var(--item-count));
+}
+
+.table-row {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}

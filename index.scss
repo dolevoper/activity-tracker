@@ -17,3 +17,30 @@ main {
         margin-inline-start: auto;
     }
 }
+
+.activities {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    &__head,
+    &__body {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-template-rows: subgrid;
+    }
+
+    &__body {
+        grid-row: body;
+        grid-row: 2 / calc(2 + var(--item-count));
+    }
+}
+
+.table-row {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+}
