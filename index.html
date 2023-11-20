@@ -16,23 +16,15 @@
         <form name="logActivity" class="log-activity">
             <div class="form-control">
                 <label for="logActivityNameInput">Name</label>
-                <input type="text" name="name" id="logActivityNameInput" required />
+                <input type="text" name="name" id="logActivityNameInput" required autofocus />
             </div>
             <div class="form-control">
-                <label for="logActivityStartDateInput">Start date</label>
-                <input type="date" name="startDate" id="logActivityStartDateInput" required />
+                <label for="logActivityStartedInput">Started</label>
+                <input type="datetime-local" name="started" id="logActivityStartedInput" required />
             </div>
             <div class="form-control">
-                <label for="logActivityStartTimeInput">Start time</label>
-                <input type="time" name="startTime" id="logActivityStartTimeInput" required />
-            </div>
-            <div class="form-control">
-                <label for="logActivityEndDateInput">End date</label>
-                <input type="date" name="endDate" id="logActivityEndDateInput" required />
-            </div>
-            <div class="form-control">
-                <label for="logActivityEndTimeInput">End time</label>
-                <input type="time" name="endTime" id="logActivityEndTimeInput" required />
+                <label for="logActivityEndedInput">Ended</label>
+                <input type="datetime-local" name="ended" id="logActivityEndedInput" required />
             </div>
             <button class="log-activity__log-button">➕Log</button>
         </form>
